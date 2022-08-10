@@ -1,8 +1,14 @@
+from re import template
 from django.shortcuts import render
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import LoginView
+from django.contrib.auth import login
 from .models import Story
 # Create your views here.
 
+
+class Home(LoginView):
+  template_name = 'home.html'
 
 def home(request):
   return render(request, 'home.html')
