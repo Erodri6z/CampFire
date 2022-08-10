@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Story
 # Create your views here.
 
@@ -22,3 +22,11 @@ class StoryCreate(CreateView):
   model = Story
   fields = '__all__'
   successful_url = '/stories/'
+
+class StoryUpdate(UpdateView):
+  model = Story
+  fields = '__all__'
+
+class StoryDelete(DeleteView):
+  model = Story
+  success_url = '/stories/'
