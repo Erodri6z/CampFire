@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic.edit import CreateView
 from .models import Story
 # Create your views here.
 
@@ -16,3 +17,8 @@ def stories_index(request):
 def stories_detail(request, story_id):
   story = Story.objects.get(id=story_id)
   return render(request, 'stories/detail.html', { 'story': story })
+
+class StoryCreate(CreateView):
+  model = Story
+  fields = '__all__'
+  successful_url = '/stories/'
