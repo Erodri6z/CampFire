@@ -12,3 +12,7 @@ def about(request):
 def stories_index(request):
   stories = Story.objects.all()
   return render(request, 'stories/index.html', { 'stories': stories })
+
+def stories_detail(request, story_id):
+  story = Story.objects.get(id=story_id)
+  return render(request, 'stories/detail.html', { 'story': story })

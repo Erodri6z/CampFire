@@ -6,10 +6,12 @@
 <h1>Story Ideas</h1>
 
 {% for story in stories %}
+<a href="{% url 'stories_detail' story.id %}">
   <div>
     <h1>test</h1>
     <h2>{{ story.plot }}</h2>
   </div>
+</a>
 {% endfor %}
 
 {% endblock %}

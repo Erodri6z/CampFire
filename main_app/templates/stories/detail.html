@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div>
+  <h3>{{ story.plot }}</h3>
+  <h3>Genre: {{ story.genre }}</h3>
+  <h4>Main theme: {{ story.theme }}</h4>
+</div>
+
+
+{% endblock %}
