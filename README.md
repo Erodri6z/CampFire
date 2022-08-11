@@ -37,3 +37,8 @@ Wireframe [here](https://whimsical.com/campfire-3eDWhepjumLpBnzVfmDnmy)
 
 
 # Next Steps 
+
+- Add the ability to like and dislike
+- Add the ability to build apon ideas
+- Add the ability to add charecter ideas
+- Improve on Styling
