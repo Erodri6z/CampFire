@@ -1,20 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/stories/stories-details.css' %}"
+/>
+{% endblock %}
 {% block content %}
 
 <section>
-  <h1>Welcome to Campfire</h1>
+  <div>
+    <h1>Welcome to Campfire</h1>
+  </div>
 </section>
 
-{% if not user.is_authenticated %}  <section>
-    <form action="{% url 'home' %}" method="post" class="login">
+{% if not user.is_authenticated %}  
+  <section>
+    <div>
+      <form action="{% url 'home' %}" method="post" class="login">
       <h1>Login</h1>
       {% csrf_token %}
       {{ form.as_p }}
       <input type="hidden" name="next" value="{{ next }}">
       <button type="submit" class="btn btn-outline-dark">Login</button>
-    </form>
-{% endif %}
+      </form>
+    </div>
   </section>
+{% endif %}
 {% endblock %}

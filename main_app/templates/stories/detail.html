@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/stories/stories-details.css' %}"
+/>
+{% endblock %}
 
 {% block content %}
 <div>
-  <h1>{{ story.user }}</h1>
-  <h3>{{ story.plot }}</h3>
-  <h3>Genre: {{ story.genre }}</h3>
-  <h4>Main theme: {{ story.theme }}</h4>
+  <br>
+  <h1>{{ story.name }}</h1>
+  <h6>By {{ story.user }}</h6>
+    <h3>Genre: {{ story.genre }}</h3>
+    <h3>Main theme: {{ story.theme }}</h3>
+    <hr>
+  <p>{{ story.plot }}</p>
   {% if user == story.user  %}
   <a href="{% url 'stories_update' story.id %}" class="btn btn-outline-success">Edit</a>
   <a href="{% url 'stories_delete' story.id %}" class="btn btn-outline-danger">Delete</a>

@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/stories/stories-details.css' %}"
+/>
+{% endblock %}
+
 {% block content %}
 <div>
-  <h1>Whats Your Story Idea</h1>
-  <form action="" method="post" class="form-container">
+  <br>
+  {% if story %}
+    <h1>Improve Your Idea</h1>
+  {% else %}
+    <h1>Whats Your Story Idea</h1>
+  {% endif %}
+  <hr>
+  <form action="" method="post" class="form-container" autocomplete='Off'>
     {% csrf_token %}
     <table>
       {{ form.as_table }}
     </table>
+    <br>
     <button type="submit" class="btn btn-outline-primary">Submit</button>
   </form>
 </div>

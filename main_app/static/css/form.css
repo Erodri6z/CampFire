@@ -1,0 +1,56 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+h1{
+  text-align: center;
+}
+
+form{
+  position: center;
+}
+
+table {
+  padding: 0 40px;
+  width: 100%;
+  border-spacing: 0 20px;
+}
+
+li{
+  font-size: small;
+  margin: 10px;
+}
+
+th {
+  text-align: left;
+  padding: 6px 10px 10px 0;
+  font-weight: normal;
+  vertical-align: top;
+  font-size: var(--font-reg);
+}
+
+label{
+  margin-left: 20%;
+}
+
+td {
+  max-width: 60%;
+}
+
+td > * {
+  width: 90%;
+  padding: 2px 1px;
+  font-size: var(--font-l);
+}
+
+td > textarea {
+  height: calc(4 * var(--font-l) + 8px);
+  font-family: inherit;
+}
+
+.btn {
+  align-self: flex-end;
+  margin-right: 50%;
+}

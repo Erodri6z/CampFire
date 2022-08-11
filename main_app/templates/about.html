@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/stories/stories-details.css' %}"
+/>
+{% endblock %}
 
 {% block content %}
+<div>
   <h1>About Campfire</h1>
   <h2>Have you ever wanted to write a story, but could not think of a good structured plot or charecter?</h2>
-
+</div>
 {% endblock %}

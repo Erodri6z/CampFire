@@ -1,0 +1,15 @@
+div{
+  max-width: 70%;
+  position: center;
+  margin:auto;
+  text-align: center;
+}
+
+h3{
+  display:inline;
+  margin: 20px;
+}
+
+table{
+  margin: auto
+}
