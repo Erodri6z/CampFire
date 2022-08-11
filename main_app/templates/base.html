@@ -1,35 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-    rel="shortcut icon"
-    type="image/png"
-    href=""
-  >
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
   <title>Campfire</title>
   {% block head %}
   {% endblock %}
 </head>
 <body>
   <header>
+    <div class="container"></div>
     <nav>
-      <ul>
+      <ul class="nav-bar">
         {% if user.is_authenticated %}
           <li><a href="/">Home</a></li>
           <li><a href="{% url 'stories_create' %}">Got a story idea?</a></li>
           <li><a href="{% url 'stories_index' %}">Story Ideas</a></li>
           <li><a href="{% url 'about' %}">About</a></li>
-          <li><a href="{% url 'logout' %}">Log out</a></li>
+          <li style="float:right"><a href="{% url 'logout' %}">Log out</a></li>
         {% else %}
             <li><a href="{% url 'about' %}">About</a></li>
-            <li><a href="{% url 'home' %}">Login</a></li>
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li style="float:right"><a href="{% url 'home' %}">Login</a></li>
+            <li style="float:right"><a href="{% url 'signup' %}">Sign Up</a></li>
         {% endif %}
-
       </ul>
+    </div>
     </nav>
   </header>
   <main>

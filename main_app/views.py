@@ -30,7 +30,7 @@ def stories_detail(request, story_id):
 
 class StoryCreate(LoginRequiredMixin, CreateView):
   model = Story
-  fields = '__all__'
+  fields = ['name', 'plot', 'genre', 'theme']
   successful_url = '/stories/'
 
   def form_valid(self, form):
@@ -39,7 +39,7 @@ class StoryCreate(LoginRequiredMixin, CreateView):
 
 class StoryUpdate(LoginRequiredMixin, UpdateView):
   model = Story
-  fields = '__all__'
+  fields = ['name', 'plot', 'genre', 'theme']
 
 class StoryDelete(LoginRequiredMixin, DeleteView):
   model = Story
