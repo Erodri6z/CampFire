@@ -9,7 +9,7 @@
 />
 {% endblock %}
 {% block content %}
-
+{% if user.is_authenticated %} 
 <section>
   <div>
     <br>
@@ -20,15 +20,17 @@
   </div>
 </section>
 
-{% if not user.is_authenticated %}  
-  <section>
+{% else %}
+  <section >
     <div>
-      <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}">
-      <button type="submit" class="btn btn-outline-dark">Login</button>
+      <br>
+        <h1>Welcome to Campfire</h1>
+        <h1>Login</h1>
+        <form action="{% url 'home' %}" method="post" class="login" autocomplete="off">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="hidden" name="next" value="{{ next }}" >
+        <button type="submit" class="btn btn-outline-dark">Login</button>
       </form>
     </div>
   </section>
