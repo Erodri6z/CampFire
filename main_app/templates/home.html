@@ -7,7 +7,7 @@
   <h1>Welcome to Campfire</h1>
 </section>
 
-  <section>
+{% if not user.is_authenticated %}  <section>
     <form action="{% url 'home' %}" method="post" class="login">
       <h1>Login</h1>
       {% csrf_token %}
@@ -15,5 +15,6 @@
       <input type="hidden" name="next" value="{{ next }}">
       <button type="submit" class="btn submit">Login</button>
     </form>
+{% endif %}
   </section>
 {% endblock %}
