@@ -1,9 +1,11 @@
 from re import template
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Story
 # Create your views here.
 
@@ -16,16 +18,17 @@ def home(request):
 
 def about(request):
   return render(request, 'about.html')
-
+@login_required
 def stories_index(request):
   stories = Story.objects.all()
   return render(request, 'stories/index.html', { 'stories': stories })
 
+@login_required
 def stories_detail(request, story_id):
   story = Story.objects.get(id=story_id)
   return render(request, 'stories/detail.html', { 'story': story })
 
-class StoryCreate(CreateView):
+class StoryCreate(LoginRequiredMixin, CreateView):
   model = Story
   fields = '__all__'
   successful_url = '/stories/'
@@ -34,11 +37,11 @@ class StoryCreate(CreateView):
     form.instance.user = self.request.user  
     return super().form_valid(form)
 
-class StoryUpdate(UpdateView):
+class StoryUpdate(LoginRequiredMixin, UpdateView):
   model = Story
   fields = '__all__'
 
-class StoryDelete(DeleteView):
+class StoryDelete(LoginRequiredMixin, DeleteView):
   model = Story
   success_url = '/stories/'
 
