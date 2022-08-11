@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block head %}
+<link 
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/stories/stories-index.css' %}"
+/>
+{% endblock %}
 
 {% block content %}
-<h1>Story Ideas</h1>
+<div class="stories">
+  <h1>Story Ideas</h1>
 
 {% for story in stories %}
-<a href="{% url 'stories_detail' story.id %}">
+<a class="details" href="{% url 'stories_detail' story.id %}">
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title"> Name:{{ story.name }}</h5>
@@ -16,6 +23,8 @@
   </div>
 </a>
 {% endfor %}
+</div>
+
 
 {% endblock %}
 
